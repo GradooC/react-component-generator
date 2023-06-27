@@ -2,6 +2,10 @@
   "name": "react-component-generator",
   "displayName": "React component generator",
   "description": "Generates a basic react component",
+  "author": {
+    "name": "Shchamialiou Yauhen"
+  },
+  "publisher": "gradus",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.79.0"
