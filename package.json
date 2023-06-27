@@ -45,7 +45,7 @@
             "createReactComponent.tsx.snippet": {
                 "type": "string",
                 "editPresentation": "multilineText",
-                "default": "import React from 'react';\nimport styles from './{{fileName}}.module.css';\n\nexport type {{componentName}}Props = {}\n\nexport const {{componentName}} = ({}: {{componentName}}Props) => {\n\treturn <div className={styles.root}>{{componentName}}</div>\n};\n",
+                "default": "import React from 'react';\nimport styles from './{{fileName}}.module.css';\n\nexport type {{componentName}}Props = {};\n\nexport const {{componentName}} = ({}: {{componentName}}Props) => {\n\treturn <div className={styles.root}>{{componentName}}</div>;\n};\n",
                 "description": "Content for the tsx file"
             },
             "createReactComponent.styles.snippet": {
