@@ -20,6 +20,7 @@
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
+  "icon": "public/logo.png",
   "contributes": {
     "commands": [
       {
