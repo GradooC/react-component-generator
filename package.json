@@ -6,7 +6,7 @@
     "name": "Shchamialiou Yauhen"
   },
   "publisher": "gradus",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.79.0"
   },
@@ -28,43 +28,43 @@
       }
     ],
     "menus": {
-        "commandPalette": [
-          {
-            "command": "react-component-files-generator.createComponent",
-            "when": "explorerResourceIsFolder"
-          }
-        ],
-        "explorer/context": [
-          {
-            "command": "react-component-files-generator.createComponent",
-            "when": "explorerResourceIsFolder",
-            "group": "EditorConfig@1"
-          }
-        ]
-      },
-      "configuration": {
-        "title": "Create React Component",
-        "properties": {
-            "createReactComponent.index.snippet": {
-                "type": "string",
-                "editPresentation": "multilineText",
-                "default": "export * from './{{fileName}}';\n",
-                "description": "Content for the index file"
-            },
-            "createReactComponent.tsx.snippet": {
-                "type": "string",
-                "editPresentation": "multilineText",
-                "default": "import React from 'react';\nimport styles from './{{fileName}}.module.css';\n\nexport type {{componentName}}Props = {};\n\nexport const {{componentName}} = ({}: {{componentName}}Props) => {\n\treturn <div className={styles.root}>{{componentName}}</div>;\n};\n",
-                "description": "Content for the tsx file"
-            },
-            "createReactComponent.styles.snippet": {
-                "type": "string",
-                "editPresentation": "multilineText",
-                "default": ".root {}\n",
-                "description": "Content for the styles file"
-            }
+      "commandPalette": [
+        {
+          "command": "react-component-files-generator.createComponent",
+          "when": "explorerResourceIsFolder"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "react-component-files-generator.createComponent",
+          "when": "explorerResourceIsFolder",
+          "group": "EditorConfig@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Create React Component",
+      "properties": {
+        "createReactComponent.index.snippet": {
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "export * from './{{fileName}}';\n",
+          "description": "Content for the index file"
+        },
+        "createReactComponent.tsx.snippet": {
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "import React from 'react';\nimport styles from './{{fileName}}.module.css';\n\nexport type {{componentName}}Props = {};\n\nexport const {{componentName}} = ({}: {{componentName}}Props) => {\n\treturn <div className={styles.root}>{{componentName}}</div>;\n};\n",
+          "description": "Content for the tsx file"
+        },
+        "createReactComponent.styles.snippet": {
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": ".root {}\n",
+          "description": "Content for the styles file"
         }
       }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
