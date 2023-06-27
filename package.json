@@ -1,6 +1,6 @@
 {
-  "name": "react-component-generator",
-  "displayName": "React component generator",
+  "name": "react-component-files-generator",
+  "displayName": "React component files generator",
   "description": "Generates a basic react component",
   "author": {
     "name": "Shchamialiou Yauhen"
@@ -23,20 +23,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "react-component-generator.createComponent",
+        "command": "react-component-files-generator.createComponent",
         "title": "Create React Component"
       }
     ],
     "menus": {
         "commandPalette": [
           {
-            "command": "react-component-generator.createComponent",
+            "command": "react-component-files-generator.createComponent",
             "when": "explorerResourceIsFolder"
           }
         ],
         "explorer/context": [
           {
-            "command": "react-component-generator.createComponent",
+            "command": "react-component-files-generator.createComponent",
             "when": "explorerResourceIsFolder",
             "group": "EditorConfig@1"
           }
