@@ -77,7 +77,7 @@
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "release": "npm version patch && git push --tags",
+    "release": "npm version patch && git push --follow-tags",
     "deploy": "vsce publish --yarn"
   },
   "devDependencies": {
