@@ -49,13 +49,13 @@
         "createReactComponent.index.snippet": {
           "type": "string",
           "editPresentation": "multilineText",
-          "default": "export * from './{{fileName}}';\n",
+          "default": "export * from './${name:kebab}';\n",
           "description": "Content for the index file"
         },
         "createReactComponent.tsx.snippet": {
           "type": "string",
           "editPresentation": "multilineText",
-          "default": "import React from 'react';\nimport styles from './{{fileName}}.module.css';\n\nexport type {{componentName}}Props = {};\n\nexport const {{componentName}} = ({}: {{componentName}}Props) => {\n\treturn <div className={styles.root}>{{componentName}}</div>;\n};\n",
+          "default": "import React from 'react';\nimport styles from './${name:kebab}.module.css';\n\nexport type ${name:pascal}Props = {};\n\nexport const ${name:pascal} = ({}: ${name:pascal}Props) => {\n\treturn <div className={styles.root}>${name:pascal}</div>;\n};\n",
           "description": "Content for the tsx file"
         },
         "createReactComponent.styles.snippet": {

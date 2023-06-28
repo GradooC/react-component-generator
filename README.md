@@ -17,3 +17,8 @@ This extension contributes the following settings:
 * `createReactComponent.index.snippet`: Specifies the content of the created index file.
 * `createReactComponent.tsx.snippet`: Specifies the content of the created tsx file.
 * `createReactComponent.styles.snippet`: Specifies the content of the created styles file.
+
+You can use the following variables in your content snippets:
+
+* `${name:pascal}`: Name of the component you provided in PascalCase (MyAwesomeComponent).
+* `${name:kebab}`: Name of the component you provided in kebab-case (my-awesome-component).

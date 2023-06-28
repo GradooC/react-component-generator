@@ -34,8 +34,8 @@ export async function createFile({
     const settings = vscode.workspace.getConfiguration(SETTINGS_SECTION);
     const contentFromSettings = settings.get<string>(settingsKey) || '';
     const formattedContent = contentFromSettings
-        .replace(/{{componentName}}/g, componentName)
-        .replace(/{{fileName}}/g, toKebabCase(componentName));
+        .replace(/\${name:pascal}/g, componentName)
+        .replace(/\${name:kebab}/g, toKebabCase(componentName));
     const fileContent = Buffer.from(formattedContent);
 
     await vscode.workspace.fs.writeFile(fileUri, fileContent);
