@@ -21,7 +21,6 @@ jobs:
       if: runner.os == 'Linux'
     - run: npm test
       if: runner.os != 'Linux'
-    - run: echo "${{ github.ref }}"
     - name: Publish
       if: success() && matrix.os == 'ubuntu-latest'
       run: npm run deploy
