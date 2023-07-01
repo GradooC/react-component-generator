@@ -1,6 +1,10 @@
 import * as vscode from 'vscode';
 import type { CreateFileParams } from './types';
-import { SETTINGS_SECTION } from './constants';
+import {
+    DEFAULT_STYLES_FILE_EXTENSION,
+    SETTINGS_SECTION,
+    STYLES_EXTENSION_SETTING_KEY,
+} from './constants';
 
 export async function getComponentName() {
     return await vscode.window.showInputBox({
@@ -15,9 +19,7 @@ function validateComponentName(value: string) {
     const PASCAL_CASE_REGEXP = /^[A-Z][a-zA-Z\d]*$/;
     const isInPascalCase = PASCAL_CASE_REGEXP.test(value);
 
-    if (!isInPascalCase) {
-        return 'Component name should be in pascal case';
-    }
+    if (!isInPascalCase) return 'Component name should be in pascal case';
 }
 
 export async function createFile({
@@ -27,15 +29,16 @@ export async function createFile({
     folderUri,
     settingsKey,
     shouldBeOpened = false,
+    skip = false,
 }: CreateFileParams) {
+    if (skip) return;
+
     const fileFullName = `${fileName}.${extension}`;
     const fileUri = vscode.Uri.joinPath(folderUri, fileFullName);
 
     const settings = vscode.workspace.getConfiguration(SETTINGS_SECTION);
     const contentFromSettings = settings.get<string>(settingsKey) || '';
-    const formattedContent = contentFromSettings
-        .replace(/\${name:pascal}/g, componentName)
-        .replace(/\${name:kebab}/g, toKebabCase(componentName));
+    const formattedContent = getFormattedContent(contentFromSettings, componentName);
     const fileContent = Buffer.from(formattedContent);
 
     await vscode.workspace.fs.writeFile(fileUri, fileContent);
@@ -44,6 +47,22 @@ export async function createFile({
         const document = await vscode.workspace.openTextDocument(fileUri);
         await vscode.window.showTextDocument(document);
     }
+}
+
+function getFormattedContent(rawContent: string, componentName: string) {
+    const settings = vscode.workspace.getConfiguration(SETTINGS_SECTION);
+    const stylesFileExtension = settings.get<string>(STYLES_EXTENSION_SETTING_KEY) || DEFAULT_STYLES_FILE_EXTENSION;
+
+    const REPLACERS = new Map([
+        [/\${ext:style}/g, stylesFileExtension],
+        [/\${name:pascal}/g, componentName],
+        [/\${name:kebab}/g, toKebabCase(componentName)],
+    ]);
+
+    return Array.from(REPLACERS.entries()).reduce(
+        (acc, [regExp, replacer]) => acc.replace(regExp, replacer),
+        rawContent
+    );
 }
 
 export function toKebabCase(value: string) {

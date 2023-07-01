@@ -55,7 +55,7 @@
         "createReactComponent.tsx.snippet": {
           "type": "string",
           "editPresentation": "multilineText",
-          "default": "import React from 'react';\nimport styles from './${name:kebab}.module.css';\n\nexport type ${name:pascal}Props = {};\n\nexport const ${name:pascal} = ({}: ${name:pascal}Props) => {\n\treturn <div className={styles.root}>${name:pascal}</div>;\n};\n",
+          "default": "import React from 'react';\nimport styles from './${name:kebab}.${ext:style}';\n\nexport type ${name:pascal}Props = {};\n\nexport const ${name:pascal} = ({}: ${name:pascal}Props) => {\n\treturn <div className={styles.root}>${name:pascal}</div>;\n};\n",
           "description": "Content for the tsx file"
         },
         "createReactComponent.styles.snippet": {
@@ -63,6 +63,22 @@
           "editPresentation": "multilineText",
           "default": ".root {}\n",
           "description": "Content for the styles file"
+        },
+        "createReactComponent.styles.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Specifies whether to create a styles file"
+        },
+        "createReactComponent.styles.extension": {
+          "type": "string",
+          "default": "module.css",
+          "enum": ["css", "module.css", "scss", "less"],
+          "description": "Specifies extension of the styles file"
+        },
+        "createReactComponent.index.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Specifies whether to create an index file"
         }
       }
     }

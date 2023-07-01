@@ -7,4 +7,5 @@ export type CreateFileParams = {
     folderUri: vscode.Uri;
     settingsKey: string;
     shouldBeOpened?: boolean;
+    skip?: boolean;
 };
