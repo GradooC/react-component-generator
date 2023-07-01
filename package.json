@@ -6,7 +6,7 @@
     "name": "Shchamialiou Yauhen"
   },
   "publisher": "gradus",
-  "version": "0.2.10",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.79.0"
   },
@@ -72,7 +72,12 @@
         "createReactComponent.styles.extension": {
           "type": "string",
           "default": "module.css",
-          "enum": ["css", "module.css", "scss", "less"],
+          "enum": [
+            "css",
+            "module.css",
+            "scss",
+            "less"
+          ],
           "description": "Specifies extension of the styles file"
         },
         "createReactComponent.index.enabled": {
